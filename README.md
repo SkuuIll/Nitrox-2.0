@@ -8,6 +8,8 @@
 
 **Nitrox 2.0** permite jugar Subnautica en multijugador con tus amigos. Explora, construye y sobrevive juntos en el mundo oceánico de Subnautica.
 
+> **📢 Nota**: Esta es una versión mejorada basada en el [proyecto original de Nitrox](https://github.com/SubnauticaNitrox/Nitrox) que añade un instalador fácil para Windows y un sistema completo de despliegue Docker/VPS. Todo el mérito del mod multijugador va al equipo original de Nitrox.
+
 ## 🎯 Dos Formas de Usar Nitrox
 
 ### 🖥️ **Para Usuarios Normales (Windows)**
@@ -263,11 +265,29 @@ Nitrox 2.0/
 
 Este proyecto está bajo la licencia GPL-3.0. Ver [LICENSE.txt](LICENSE.txt) para más detalles.
 
-## 🙏 Créditos
+## 🙏 Créditos y Reconocimientos
 
-- **Equipo Nitrox Original** - Por crear este increíble mod
-- **Unknown Worlds Entertainment** - Por Subnautica
-- **Comunidad de Modding** - Por el apoyo continuo
+### 🌟 **Proyecto Original**
+Este proyecto está basado en el increíble trabajo del **[Equipo Nitrox Original](https://github.com/SubnauticaNitrox/Nitrox)**
+
+- 🔗 **Repositorio Original**: https://github.com/SubnauticaNitrox/Nitrox
+- 👥 **Desarrolladores Originales**: [SubnauticaNitrox Team](https://github.com/SubnauticaNitrox)
+- 🎯 **Concepto y Código Base**: Todo el mérito va al equipo original de Nitrox
+
+### 🚀 **Contribuciones de esta Versión**
+- 🐳 **Sistema Docker/VPS**: Implementación completa para despliegue en servidores
+- 🖥️ **Instalador Windows**: Interfaz gráfica para usuarios finales
+- 📚 **Documentación Mejorada**: Guías para usuarios y administradores
+- ⚙️ **Automatización**: Scripts de configuración y despliegue
+
+### 🎮 **Agradecimientos Especiales**
+- **[SubnauticaNitrox Team](https://github.com/SubnauticaNitrox/Nitrox)** - Por crear y mantener el mod Nitrox original
+- **Unknown Worlds Entertainment** - Por desarrollar Subnautica
+- **Comunidad de Modding de Subnautica** - Por el apoyo y feedback continuo
+- **Contribuidores del Proyecto Original** - Por su trabajo incansable en hacer posible el multijugador
+
+### 📜 **Nota Importante**
+Esta es una versión modificada que añade funcionalidades de despliegue Docker y un instalador fácil para Windows. El código base y la funcionalidad principal del multijugador pertenecen completamente al [proyecto original de Nitrox](https://github.com/SubnauticaNitrox/Nitrox).
 
 ## 🛠️ Comandos Útiles
 
