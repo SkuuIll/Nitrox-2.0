@@ -1,22 +1,21 @@
 # 🌊 Nitrox 2.0 - Servidor Multijugador Subnautica
 
 [![Windows](https://img.shields.io/badge/Windows-10%2F11-blue?logo=windows)](https://www.microsoft.com/windows)
-[![Docker](https://img.shields.io/badge/Docker-Ready-blue?logo=docker)](https://hub.docker.com/r/nitrox/server)
-[![Kubernetes](https://img.shields.io/badge/Kubernetes-Supported-326CE5?logo=kubernetes)](./kubernetes/)
+[![Linux VPS](https://img.shields.io/badge/Linux-VPS%20Ready-green?logo=linux)](https://github.com/SkuuIll/NITROX2.0)
 [![Subnautica](https://img.shields.io/badge/Subnautica-Compatible-green?logo=steam)](https://store.steampowered.com/app/264710/Subnautica/)
 [![License](https://img.shields.io/badge/License-GPL--3.0-red)](LICENSE.txt)
 
 **Nitrox 2.0** permite jugar Subnautica en multijugador con tus amigos. Explora, construye y sobrevive juntos en el mundo oceánico de Subnautica.
 
-> **📢 Nota**: Esta es una versión mejorada basada en el [proyecto original de Nitrox](https://github.com/SubnauticaNitrox/Nitrox) que añade un instalador fácil para Windows y un sistema completo de despliegue Docker/VPS. Todo el mérito del mod multijugador va al equipo original de Nitrox.
+> **📢 Nota**: Esta es una versión mejorada basada en el [proyecto original de Nitrox](https://github.com/SubnauticaNitrox/Nitrox) que añade un instalador fácil para Windows y un sistema completo de instalación automatizada para VPS Linux. Todo el mérito del mod multijugador va al equipo original de Nitrox.
 
 ## 🎯 Dos Formas de Usar Nitrox
 
 ### 🖥️ **Para Usuarios Normales (Windows)**
 Instalador súper fácil con interfaz gráfica - ¡Solo hacer clic!
 
-### 🐳 **Para Servidores/VPS (Docker)**
-Despliegue profesional en servidores Linux con Docker y Kubernetes
+### 🐧 **Para Servidores VPS (Linux)**
+Instalación completamente automatizada en una sola línea de comando
 
 ## 🚀 Instalación Súper Fácil (Windows)
 
@@ -40,50 +39,46 @@ Despliegue profesional en servidores Linux con Docker y Kubernetes
 🌐 Comparte tu IP con amigos
 ```
 
-## 🐳 Despliegue Docker/VPS (Avanzado)
+## 🐧 Instalación Automatizada VPS (Linux)
 
-### Opción 1: Despliegue Automático en VPS
+### Instalación en Una Línea
 
 ```bash
-# 1. Configurar VPS (Ubuntu/Debian/CentOS)
-curl -fsSL https://raw.githubusercontent.com/SkuuIll/NITROX2.0/master/scripts/setup-vps.sh | sudo bash
+# Descargar e instalar automáticamente
+wget https://raw.githubusercontent.com/SkuuIll/NITROX2.0/master/install-vps.sh
+chmod +x install-vps.sh
 
-# 2. Desplegar servidor Nitrox
-./scripts/deploy-vps.sh \
-  --admin-password "tu_password_admin" \
-  --steam-user "tu_usuario_steam" \
-  --steam-pass "tu_password_steam" \
-  --server-name "Mi Servidor Nitrox"
+sudo ./install-vps.sh \
+  --steam-user TU_USUARIO_STEAM \
+  --steam-pass TU_PASSWORD_STEAM \
+  --admin-password PASSWORD_ADMIN \
+  --server-name "Mi Servidor Increíble"
 ```
 
-### Opción 2: Docker Compose Local
+### ¿Qué Hace Automáticamente?
+
+✅ **Detecta tu distribución Linux** (Ubuntu, Debian, CentOS, etc.)  
+✅ **Instala todas las dependencias** (.NET, SteamCMD, librerías)  
+✅ **Descarga Subnautica completo** via Steam automáticamente  
+✅ **Configura el servidor Nitrox** con parches VPS  
+✅ **Crea servicio systemd** para gestión profesional  
+✅ **Configura firewall** automáticamente  
+✅ **Listo para usar** en 5-10 minutos  
+
+### Gestión del Servidor
 
 ```bash
-# Clonar repositorio
-git clone https://github.com/SkuuIll/NITROX2.0.git
-cd NITROX2.0
-
-# Configurar variables de entorno
-cp docker-compose.yml docker-compose.local.yml
-# Editar docker-compose.local.yml con tus credenciales
-
 # Iniciar servidor
-docker-compose -f docker-compose.local.yml up -d
-```
+sudo systemctl start nitrox-server
 
-### Opción 3: Kubernetes
+# Detener servidor  
+sudo systemctl stop nitrox-server
 
-```bash
-# Aplicar manifiestos
-kubectl apply -f kubernetes/
+# Ver estado
+sudo systemctl status nitrox-server
 
-# Configurar secretos
-kubectl create secret generic steam-credentials \
-  --from-literal=username=tu_usuario_steam \
-  --from-literal=password=tu_password_steam
-
-kubectl create secret generic nitrox-secrets \
-  --from-literal=admin-password=tu_password_admin
+# Ver logs en tiempo real
+sudo journalctl -u nitrox-server -f
 ```
 
 ## 📋 Requisitos
@@ -168,45 +163,29 @@ Abre: `Servidor\Config\server.cfg`
 - **MaxPlayers**: Número máximo de jugadores (1-100)
 - **SaveInterval**: Intervalo de guardado en milisegundos
 
-### 🐳 Configuración Docker (Variables de Entorno)
+### 🔧 Parámetros de Instalación VPS
 
-| Variable | Descripción | Valor por Defecto |
-|----------|-------------|-------------------|
-| `NITROX_SERVER_NAME` | Nombre del servidor | `"Nitrox Docker Server"` |
-| `NITROX_SERVER_PORT` | Puerto UDP del servidor | `11000` |
-| `NITROX_ADMIN_PASSWORD` | Password de administrador | **Requerido** |
-| `NITROX_SERVER_PASSWORD` | Password del servidor (opcional) | `""` |
-| `NITROX_GAME_MODE` | Modo de juego | `"Survival"` |
-| `NITROX_MAX_PLAYERS` | Máximo de jugadores | `100` |
-| `STEAM_USERNAME` | Usuario de Steam | **Requerido** |
-| `STEAM_PASSWORD` | Password de Steam | **Requerido** |
+| Parámetro | Descripción | Requerido | Ejemplo |
+|-----------|-------------|-----------|---------|
+| `--steam-user` | Usuario de Steam | ✅ | `--steam-user miusuario` |
+| `--steam-pass` | Password de Steam | ✅ | `--steam-pass mipassword` |
+| `--admin-password` | Password de administrador | ✅ | `--admin-password admin123` |
+| `--server-name` | Nombre del servidor | ❌ | `--server-name "Mi Servidor"` |
+| `--server-password` | Password del servidor | ❌ | `--server-password "secreto"` |
+| `--max-players` | Jugadores máximos (1-100) | ❌ | `--max-players 50` |
+| `--install-dir` | Directorio de instalación | ❌ | `--install-dir /home/nitrox` |
 
-### Ejemplo Docker Compose
+### Ejemplo Completo
 
-```yaml
-version: '3.8'
-services:
-  nitrox-server:
-    image: nitrox/server:latest
-    ports:
-      - "11000:11000/udp"
-    environment:
-      - NITROX_SERVER_NAME=Mi Servidor Increíble
-      - NITROX_ADMIN_PASSWORD=password_super_seguro
-      - STEAM_USERNAME=mi_usuario_steam
-      - STEAM_PASSWORD=mi_password_steam
-      - NITROX_GAME_MODE=Survival
-      - NITROX_MAX_PLAYERS=50
-    volumes:
-      - nitrox_gamefiles:/app/gamefiles
-      - nitrox_saves:/app/saves
-      - nitrox_config:/app/config
-    restart: unless-stopped
-
-volumes:
-  nitrox_gamefiles:
-  nitrox_saves:
-  nitrox_config:
+```bash
+sudo ./install-vps.sh \
+  --steam-user miusuario \
+  --steam-pass mipassword \
+  --admin-password admin123 \
+  --server-name "Servidor Épico de Subnautica" \
+  --server-password "password_secreto" \
+  --max-players 50 \
+  --install-dir /opt/nitrox
 ```
 
 ## 🆘 Solución de Problemas
@@ -236,18 +215,30 @@ volumes:
 
 ```
 Nitrox 2.0/
-├── 🚀 Iniciar Servidor.bat    # Inicia el servidor
-├── 🎮 Iniciar Launcher.bat    # Inicia el launcher
-├── INSTALAR.bat               # Instalador automático
-├── Nitrox-Build/             # Archivos del juego
+├── INSTALAR.bat               # Instalador Windows automático
+├── install-vps.sh             # Instalador VPS Linux automático
+├── Nitrox-Build/             # Archivos del servidor y launcher
 │   ├── Server/               # Servidor Nitrox
 │   ├── Launcher/             # Launcher para clientes
-│   └── Client/               # Archivos del cliente
-├── Servidor/                 # Datos del servidor
-│   ├── Config/              # Configuración
-│   ├── Saves/               # Mundos guardados
-│   └── Logs/                # Logs del servidor
-└── README.md                # Este archivo
+│   ├── Iniciar_Servidor_Dedicado.bat    # Iniciar servidor (Windows)
+│   └── Iniciar_Nitrox_Launcher.bat      # Iniciar launcher (Windows)
+├── Start Server .txt         # Instrucciones servidor manual
+├── LICENSE.txt               # Licencia del proyecto
+└── README.md                 # Este archivo
+```
+
+### Después de Instalación VPS:
+```
+/opt/nitrox/                  # Instalación en VPS
+├── steamcmd/                 # SteamCMD para descargas
+├── gamefiles/                # Archivos de Subnautica
+├── server/                   # Servidor Nitrox configurado
+│   ├── UserData/Config/      # Configuración del servidor
+│   ├── Saves/                # Mundos guardados
+│   └── Logs/                 # Logs del servidor
+├── start-server.sh           # Script para iniciar
+├── stop-server.sh            # Script para detener
+└── status-server.sh          # Script para ver estado
 ```
 
 ## 🤝 Soporte y Comunidad
@@ -300,34 +291,25 @@ type "Servidor\Logs\server.log"
 # Cerrar ventana del servidor y volver a abrir "🚀 Iniciar Servidor.bat"
 ```
 
-### Para Docker/VPS
+### Para VPS Linux
 ```bash
-# Construir imagen Docker
-make build
-
-# Desplegar localmente
-make deploy-local
-
 # Ver logs del servidor
-make logs
-# o
-docker logs -f nitrox-server
+sudo journalctl -u nitrox-server -f
 
-# Verificar estado
-make status
-# o
-docker ps --filter "name=nitrox-server"
+# Verificar estado del servidor
+sudo systemctl status nitrox-server
 
-# Actualizar servidor
-make update
-# o
-docker pull nitrox/server:latest && docker-compose up -d
+# Reiniciar servidor
+sudo systemctl restart nitrox-server
 
-# Crear backup
-make backup
+# Ver configuración del servidor
+cat /opt/nitrox/server/UserData/Config/server.cfg
 
-# Limpiar recursos Docker
-make clean
+# Crear backup manual
+tar -czf nitrox-backup-$(date +%Y%m%d).tar.gz /opt/nitrox/server/Saves/
+
+# Ver jugadores conectados
+netstat -an | grep :11000 | grep ESTABLISHED | wc -l
 ```
 
 ---
