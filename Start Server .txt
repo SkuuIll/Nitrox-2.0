@@ -1,0 +1,3 @@
+cd ~/NITROX2.0/Nitrox-Build/Server/
+
+HOME=/root SUBNAUTICA_INSTALLATION_PATH="/root/subnautica_files" dotnet NitroxServer-Subnautica.dll
