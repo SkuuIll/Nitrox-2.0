@@ -16,7 +16,7 @@
           "NitroxModel-Subnautica": "1.8.0",
           "NitroxServer": "1.8.0",
           "PolySharp": "1.15.0",
-          "SixLabors.ImageSharp": "2.1.10",
+          "SixLabors.ImageSharp": "2.1.11",
           "protobuf-net": "0.0.0.0"
         },
         "runtime": {
@@ -167,7 +167,7 @@
           }
         }
       },
-      "SixLabors.ImageSharp/2.1.10": {
+      "SixLabors.ImageSharp/2.1.11": {
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "6.1.2",
           "System.Text.Encoding.CodePages": "5.0.0"
@@ -175,7 +175,7 @@
         "runtime": {
           "lib/netcoreapp3.1/SixLabors.ImageSharp.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.1.10.0"
+            "fileVersion": "2.1.11.0"
           }
         }
       },
@@ -201,14 +201,7 @@
           "Microsoft.NETCore.Platforms": "5.0.0"
         }
       },
-      "System.Text.Json/9.0.4": {
-        "runtime": {
-          "lib/net9.0/System.Text.Json.dll": {
-            "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.0.425.16305"
-          }
-        }
-      },
+      "System.Text.Json/9.0.4": {},
       "NitroxModel/1.8.0": {
         "dependencies": {
           "Autofac": "4.9.4",
@@ -230,7 +223,7 @@
         },
         "runtime": {
           "NitroxModel.dll": {
-            "assemblyVersion": "1.8.0",
+            "assemblyVersion": "1.8.0.0",
             "fileVersion": "1.8.0.0"
           }
         }
@@ -243,7 +236,7 @@
         },
         "runtime": {
           "NitroxModel-Subnautica.dll": {
-            "assemblyVersion": "1.8.0",
+            "assemblyVersion": "1.8.0.0",
             "fileVersion": "1.8.0.0"
           }
         }
@@ -255,7 +248,7 @@
         },
         "runtime": {
           "NitroxServer.dll": {
-            "assemblyVersion": "1.8.0",
+            "assemblyVersion": "1.8.0.0",
             "fileVersion": "1.8.0.0"
           }
         }
@@ -409,12 +402,12 @@
       "path": "serilog.sinks.map/2.0.0",
       "hashPath": "serilog.sinks.map.2.0.0.nupkg.sha512"
     },
-    "SixLabors.ImageSharp/2.1.10": {
+    "SixLabors.ImageSharp/2.1.11": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-hk1E7U3RSlxrBVo6Gb6OjeM52fChpFYH+SZvyT/M2vzSGlzAaKE33hc3V/Pvnjcnn1opT8/Z+0QfqdM5HsIaeA==",
-      "path": "sixlabors.imagesharp/2.1.10",
-      "hashPath": "sixlabors.imagesharp.2.1.10.nupkg.sha512"
+      "sha512": "sha512-tUvsejgzUmEbES114yLseRxmFiYlQbH5RyaYXUQsEL7ksDo1/kW+ZL1EfD6iSUfxj7LHU8p110oFvSrRfsaWSQ==",
+      "path": "sixlabors.imagesharp/2.1.11",
+      "hashPath": "sixlabors.imagesharp.2.1.11.nupkg.sha512"
     },
     "System.Buffers/4.6.1": {
       "type": "package",
