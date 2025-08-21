@@ -268,6 +268,7 @@ install_steamcmd() {
 }
 
 # Download Subnautica
+# Download Subnautica
 download_subnautica() {
     log_info "Downloading Subnautica..."
     local steamcmd_path="$INSTALL_DIR/steamcmd/steamcmd.sh"
@@ -279,7 +280,7 @@ download_subnautica() {
 @NoPromptForPassword 1
 force_install_dir $game_dir
 login $STEAM_USERNAME $STEAM_PASSWORD
-app_update $SUBNAUTICA_APP_ID validate
+app_update $SUBNAUTICA_APP_ID
 quit
 EOF
     
