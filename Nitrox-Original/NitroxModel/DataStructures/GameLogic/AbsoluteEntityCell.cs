@@ -4,6 +4,7 @@ using BinaryPack.Attributes;
 using NitroxModel.Core;
 using NitroxModel.DataStructures.Unity;
 using NitroxModel.Helper;
+using NitroxModel.Logger;
 
 namespace NitroxModel.DataStructures.GameLogic;
 
@@ -85,7 +86,8 @@ public class AbsoluteEntityCell
             case 3:
                 return 5;
             default:
-                throw new Exception($"Given level '{level}' does not have any defined cells.");
+                Log.Warn($"Given level '{level}' does not have any defined cells. Defaulting to 5.");
+                return 5;
         }
     }
 
