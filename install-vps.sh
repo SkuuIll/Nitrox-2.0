@@ -342,7 +342,7 @@ cd "$INSTALL_DIR/server"
 
 # Set environment variables for VPS compatibility
 export HOME="\\\${HOME:-$INSTALL_DIR/server/UserData}"
-export XDG_CONFIG_HOME="$XDG_CONFIG_HOME:-$INSTALL_DIR/server/UserData/.config}"
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$INSTALL_DIR/server/UserData/.config}"
 export SUBNAUTICA_INSTALLATION_PATH="$INSTALL_DIR/gamefiles"
 
 # Create necessary directories
