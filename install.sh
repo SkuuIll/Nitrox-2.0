@@ -277,8 +277,8 @@ download_subnautica() {
     cat > "$download_script_path" << EOF
 @ShutdownOnFailedCommand 1
 @NoPromptForPassword 1
-login $STEAM_USERNAME $STEAM_PASSWORD
 force_install_dir $game_dir
+login $STEAM_USERNAME $STEAM_PASSWORD
 app_update $SUBNAUTICA_APP_ID validate
 quit
 EOF
