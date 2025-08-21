@@ -11,7 +11,7 @@ SCRIPT_VERSION="2.0.0"
 SCRIPT_NAME="Nitrox VPS Installer"
 
 # Default configuration
-DEFAULT_INSTALL_DIR="/opt/nitrox"
+DEFAULT_INSTALL_DIR="./_server_files"
 DEFAULT_SERVER_NAME="Nitrox VPS Server"
 DEFAULT_MAX_PLAYERS=100
 SUBNAUTICA_APP_ID=264710
@@ -506,6 +506,9 @@ main() {
     # Parse and validate arguments
     parse_arguments "$@"
     validate_arguments
+
+    # Resolve install directory to an absolute path for systemd compatibility
+    INSTALL_DIR=$(readlink -f "$INSTALL_DIR")
     
     # Display configuration
     log_info "Installation Configuration:"

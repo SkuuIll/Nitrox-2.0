@@ -40,11 +40,12 @@ if %errorLevel% == 0 (
     echo ✅ .NET Framework instalado
 ) else (
     echo ❌ .NET Framework no encontrado
+    if not exist "_temp_downloads" mkdir "_temp_downloads"
     echo 📥 Descargando .NET Framework 4.7.2...
-    powershell -Command "Invoke-WebRequest -Uri 'https://download.microsoft.com/download/6/E/4/6E48E8AB-DC00-419E-9704-06DD46E5F81D/NDP472-KB4054530-x86-x64-AllOS-ENU.exe' -OutFile 'dotnet472.exe'"
+    powershell -Command "Invoke-WebRequest -Uri 'https://download.microsoft.com/download/6/E/4/6E48E8AB-DC00-419E-9704-06DD46E5F81D/NDP472-KB4054530-x86-x64-AllOS-ENU.exe' -OutFile '_temp_downloads\dotnet472.exe'"
     echo 🚀 Instalando .NET Framework...
-    dotnet472.exe /quiet
-    del dotnet472.exe
+    "_temp_downloads\dotnet472.exe" /quiet
+    del "_temp_downloads\dotnet472.exe"
 )
 
 echo.
