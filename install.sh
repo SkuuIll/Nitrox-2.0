@@ -361,6 +361,15 @@ show_final_summary() {
     echo
 }
 
+# Create installation directory structure
+create_directory_structure() {
+    log_info "Creating directory structure..."
+    mkdir -p "$INSTALL_DIR"/{steamcmd,gamefiles,server}
+    mkdir -p "$INSTALL_DIR/server"/{UserData/Config,Saves,Logs}
+    chmod -R 755 "$INSTALL_DIR"
+    log_success "Directory structure created"
+}
+
 # --- MAIN EXECUTION ---
 main() {
     if [[ $# -gt 0 ]]; then
