@@ -276,7 +276,7 @@ install_steamcmd() {
 download_subnautica() {
     log_info "Downloading Subnautica..."
     local steamcmd_path="$INSTALL_DIR/steamcmd/steamcmd.sh"
-    local game_dir="$INSTALL_DIR/gamefiles"
+    local game_dir="$INSTALL_DIR/steamcmd/server_data/gamefiles"
 
     # Check if Subnautica.exe already exists
     if [[ -f "$game_dir/Subnautica.exe" ]]; then
