@@ -271,6 +271,7 @@ install_steamcmd() {
 # Download Subnautica
 # Download Subnautica
 # Download Subnautica
+# Download Subnautica
 download_subnautica() {
     log_info "Downloading Subnautica..."
     local steamcmd_path="$INSTALL_DIR/steamcmd/steamcmd.sh"
